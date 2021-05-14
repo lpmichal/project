@@ -1,9 +1,5 @@
 # Project
-
-## Version
-
-## Notes
-
-## Install
+        template project
 
 ## Run
+`python3 app.py`

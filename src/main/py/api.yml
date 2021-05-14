@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: project api
+  description: paths to connect to application
+  version: 1.0.0
+
+paths:
+  /login:
+    post:
+      summary: logs in a user with id and password
+      opertionId: app.login
+      parameters:
+        - name: X-Username
+          description: the username of the individual logging in
+          in: header
+          required: true
+          schema:
+            type: string
+
+        - name: X-Password
+          description: the password of the individual logging in
+          in: header
+          required: true
+          schema:
+            type: string
+          
+      responses:
+        '200':
+          description: user authentication is successful and re-direct complete
+        '403':
+          description: user authentication is unsucessful with a bad username or password
+
