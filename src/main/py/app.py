@@ -1,4 +1,5 @@
 import security
+import tables
 import connexion
 from connexion.resolver import RestyResolver
 
@@ -25,3 +26,17 @@ def login():
 
     else:
         return 'Forbidden', '403', {'x-message': 'User not authenticated'}
+
+
+'''
+    Creates a user from the given user spec
+'''
+@app.route('/create')
+def create(username, password, email):
+
+    try:
+        tables.create_user(username, password, email)
+        return 'OK', '200', {'x-message': 'New user successfully created'}
+    except Exception as e:
+        print(str(e))
+        return 'Internal Server Error', '500', {'x-message': str(e)}

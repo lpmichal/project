@@ -30,3 +30,29 @@ paths:
         '403':
           description: user authentication is unsucessful with a bad username or password
 
+
+  /create:
+    post:
+      summary: creates a user with the specified user schema
+      operationId: app.create
+      parameters:
+        - name: X-Username
+          description: the username of the new user to create
+          in: header
+          required: true
+          schema:
+            type: string
+
+        - name: X-Password
+          description: the password of the new user to create
+          in: header
+          required: true
+          schema:
+            type: string
+          
+        - name: X-Email
+          description: the email of the new user to create
+          in: header
+          required: true
+          schema:
+            type: string

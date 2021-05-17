@@ -6,10 +6,6 @@ import tables
 '''
 class Security(object):
 
-    conn = mysql.connector.connect(user='project', password='',
-                              host='127.0.0.1',
-                              database='project')
-    cursor = conn.cursor()
 
     '''
         Ensures the database exists with the proper tables
@@ -41,11 +37,3 @@ class Security(object):
             authenticated = True
         
         return authenticated
-
-
-
-
-
-
-
-        
