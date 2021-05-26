@@ -1,15 +1,5 @@
 import mysql.connector
 
-######################
-# Connect to database
-######################
-conn = mysql.connector.connect(user='project', password='',
-                              host='127.0.0.1',
-                              database='project')
-cursor = conn.cursor()
-
-#---------------------
-
 TABLES = {}
 
 TABLES['users'] = (
@@ -62,7 +52,7 @@ class Tables:
     def create_user(username, password, email):
 
         if constructed:
-            cursor.execute('INSERT INTO project (username, password, email) VALUES ({}, {})'.format(
+            cursor.execute('INSERT INTO project (username, password, email) VALUES ({}, {}, {})'.format(
                 username,
                 password,
                 email))

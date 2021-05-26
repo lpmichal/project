@@ -6,18 +6,26 @@ import tables
 '''
 class Security(object):
 
+    conn
+    cursor
 
     '''
         Ensures the database exists with the proper tables
     '''
     @staticmethod
     def _ensure_database():
+
         ready = False
         if len(cursor.execute('SHOW DATABASES LIKE {}'.format('project'))) > 0:
             ready = True
 
         if not ready:
             tables.construct(cursor)
+
+        conn = mysql.connector.connect(user='project', password='',
+                                       host='127.0.0.1',
+                                       database='project')
+        cursor = conn.cursor()
         return ready
 
     '''

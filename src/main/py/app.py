@@ -3,11 +3,12 @@ import tables
 import connexion
 from connexion.resolver import RestyResolver
 
-
+# Create the flask app
 app = connexion.FlaskApp('project')
 app.add_api('api.yml', resolver=RestyResolver('api'))
 app.run(port=8080)
 
+# HTTP Codes
 HTTP_OK = 200
 HTTP_FORBIDDEN = 403
 
